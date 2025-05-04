@@ -4,32 +4,60 @@
     ViewData["Title"] = "Booking Page";
 }
 
-<h1>Index</h1>
+<h1>Bookings</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-primary">Create New Booking</a>
 </p>
-<table class="table">
+
+<table class="table table-striped">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.BookingDate)
-            </th>
-            <th></th>
+            <th>@Html.DisplayNameFor(model => model.BookingDate)</th>
+            <th>Event Name</th>
+            <th>Venue Name</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+        @foreach (var item in Model)
+        {
         <tr>
+                <td>@Html.DisplayFor(modelItem => item.BookingDate)</td>
             <td>
-                @Html.DisplayFor(modelItem => item.BookingDate)
+                    @if (item.LinkedEvent != null)
+                    {
+                        <a asp-controller="Event" asp-action="Details" asp-route-id="@item.LinkedEvent.EventID">
+                            @item.LinkedEvent.EventName
+                        </a>
+                    }
+                    else
+                    {
+                        <span>Unknown Event</span>
+                    }
+                </td>
+                <td>
+                    @if (item.Venue != null)
+                    {
+                        <a asp-controller="Venue" asp-action="Details" asp-route-id="@item.Venue.VenueID">
+                            @item.Venue.VenueName
+                        </a>
+                    }
+                    else
+                    {
+                        <span>Unknown Venue</span>
+                    }
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.BookingID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.BookingID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.BookingID">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.BookingID" class="btn btn-warning btn-sm">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.BookingID" class="btn btn-info btn-sm">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.BookingID" class="btn btn-danger btn-sm">Delete</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+<div>
+    <a asp-controller="Event" asp-action="Index" class="btn btn-secondary">Back to Events</a>
+</div>

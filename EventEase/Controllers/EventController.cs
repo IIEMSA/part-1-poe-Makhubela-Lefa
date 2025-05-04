@@ -24,16 +24,34 @@ namespace EventEase.Controllers
         // Create GET action
         public IActionResult Create()
         {
+            ViewBag.Venues = _context.Venues.ToList(); // Fetch all venues for the dropdown
             return View();
         }
 
         // Create POST action
         [HttpPost]
-        public async Task<IActionResult> Create(Event currentEvent)
+        public async Task<IActionResult> Create(Event currentEvent, string NewVenueName, string NewVenueLocation, int? NewVenueCapacity)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(currentEvent);
+                // If user provided new venue details, create a new venue
+                if (!string.IsNullOrWhiteSpace(NewVenueName))
+                {
+                    var newVenue = new Venue
+                    {
+                        VenueName = NewVenueName,
+                        Location = NewVenueLocation,
+                        Capacity = NewVenueCapacity ?? 0 // Default capacity if not provided
+                    };
+
+                    _context.Venues.Add(newVenue);
+                    await _context.SaveChangesAsync();
+
+                    currentEvent.VenueID = newVenue.VenueID;
+                }
+
+                // Save the event
+                _context.Events.Add(currentEvent);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
