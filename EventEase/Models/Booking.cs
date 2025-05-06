@@ -4,8 +4,9 @@ namespace EventEase.Models
 {
     public class Booking
     {
-        [Key]
+        
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
         public int BookingID { get; set; } // Primary Key
         public int EventID { get; set; }  // Foreign key for Event
         public int VenueID { get; set; }  // Foreign key for Venue
@@ -14,8 +15,8 @@ namespace EventEase.Models
         
 
         // Navigation Properties
-        public Event LinkedEvent { get; set; } // Reference to Event
-        public Venue Venue { get; set; }     // Reference to Venue
+        public Event? LinkedEvent { get; set; } // Reference to Event
+        public Venue? Venue { get; set; }     // Reference to Venue
         
     }
 }

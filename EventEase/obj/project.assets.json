@@ -7679,11 +7679,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lab_services_student\\OneDrive\\CLDV6211 WORK\\EventEase\\EventEase.csproj",
+      "projectUniqueName": "C:\\Users\\lab_services_student\\Desktop\\part-1-poe-Makhubela-Lefa\\EventEase\\EventEase.csproj",
       "projectName": "EventEase",
-      "projectPath": "C:\\Users\\lab_services_student\\OneDrive\\CLDV6211 WORK\\EventEase\\EventEase.csproj",
+      "projectPath": "C:\\Users\\lab_services_student\\Desktop\\part-1-poe-Makhubela-Lefa\\EventEase\\EventEase.csproj",
       "packagesPath": "C:\\Users\\lab_services_student\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lab_services_student\\OneDrive\\CLDV6211 WORK\\EventEase\\obj\\",
+      "outputPath": "C:\\Users\\lab_services_student\\Desktop\\part-1-poe-Makhubela-Lefa\\EventEase\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

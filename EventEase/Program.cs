@@ -12,7 +12,7 @@ namespace EventEase
             builder.Services.AddControllersWithViews()
                 .AddMvcOptions(options =>
                 {
-                    options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute()); // Add the antiforgery token validation
+                    options.Filters.Add(new IgnoreAntiforgeryTokenAttribute()); // Add the antiforgery token validation
                 });
 
             // Register the database context here

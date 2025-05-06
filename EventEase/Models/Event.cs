@@ -10,9 +10,10 @@ namespace EventEase.Models
         public string? EventName { get; set; }   
         public DateTime EventDate { get; set; } 
         public string? Description { get; set; } // Event description (optional)
-        public int? VenueID { get; set; }        // Foreign key for Venue
+        public int VenueID { get; set; }        // Foreign key for Venue
        
         // Navigation Property
-        public Venue? Venue { get; set; }        // Reference to the Venue hosting this event
+        [ForeignKey("VenueID")]
+        public required Venue Venue { get; set; }        // Reference to the Venue hosting this event
     }
 }
