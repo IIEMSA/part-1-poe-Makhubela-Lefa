@@ -1,8 +1,15 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Welcome to EventEase!";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4 text-primary">EventEase</h1>
+    <p class="lead">Your one-stop platform for seamless event planning and venue booking.</p>
+
+    <div class="mt-4">
+        <a class="btn btn-outline-primary mx-2" asp-controller="Event" asp-action="Index">Events</a>
+        <a class="btn btn-outline-success mx-2" asp-controller="Venue" asp-action="Index">Venues</a>
+        <a class="btn btn-outline-warning mx-2" asp-controller="Booking" asp-action="Index">Bookings</a>
+    </div>
+
 </div>
